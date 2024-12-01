@@ -1,8 +1,8 @@
 pipeline {
     agent any
     environment {
-       FRONTEND_URL='http://localhost:3000'
-       MONGODB_URI='mongodb+srv://asrithnune03:asrithrishi@discuss.lieci.mongodb.net/?retryWrites=true&w=majority&appName=DiscUss'
+       FRONTEND_URL=http://localhost:3000
+       MONGODB_URI=mongodb+srv://asrithnune03:asrithrishi@discuss.lieci.mongodb.net/?retryWrites=true&w=majority&appName=DiscUss
        JWT_SECRET_KEY='jhdcjhsdvchjsdhbfasdgbvs'
     }
     stages {
@@ -29,12 +29,12 @@ pipeline {
         }
         stage('Push Images to DockerHub') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'DockerHubCred', usernameVariable: 'Asrith1158', passwordVariable: 'Chandrausha@123')]) {
-                    sh 'docker login -u $Asrith1158 -p $Chandrausha@123'
-                    sh 'docker tag frontend-image Asrith1158/frontend-image:latest'
-                    sh 'docker push Asrith1158/frontend-image:latest'
-                    sh 'docker tag backend-image Asrith1158/backend-image:latest'
-                    sh 'docker push Asrith1158/backend-image:latest'
+                withCredentials([usernamePassword(credentialsId: 'DockerHubCred', usernameVariable: 'asrith1158', passwordVariable: 'Chandrausha@123')]) {
+                    sh 'docker login -u $asrith1158 -p $Chandrausha@123'
+                    sh 'docker tag frontend-image asrith1158/frontend-image:latest'
+                    sh 'docker push asrith1158/frontend-image:latest'
+                    sh 'docker tag backend-image asrith1158/backend-image:latest'
+                    sh 'docker push asrith1158/backend-image:latest'
                 }
             }
         }
