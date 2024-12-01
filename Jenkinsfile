@@ -27,14 +27,15 @@ pipeline {
             }
             }
         }
-        stage('Push Images to DockerHub') {
+        stage('Push to Docker Hub') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'DockerHubCred', usernameVariable: 'asrith1158', passwordVariable: 'Chandrausha@123')]) {
-                    sh 'docker login -u $asrith1158 -p $Chandrausha@123'
-                    sh 'docker tag frontend-image asrith1158/frontend-image:latest'
-                    sh 'docker push asrith1158/frontend-image:latest'
-                    sh 'docker tag backend-image asrith1158/backend-image:latest'
-                    sh 'docker push asrith1158/backend-image:latest'
+                script {
+                        sh "docker login --username asrith1158 --password Chandrausha@123"
+                        sh 'docker tag frontend-image asrith1158/frontend-image:latest'
+                        sh 'docker push asrith1158/frontend-image:latest'
+                        sh "docker tag backend-image asrith1158/backend-image:latest"
+                        sh "docker push asrith1158/backend-image:latest"
+                    
                 }
             }
         }
