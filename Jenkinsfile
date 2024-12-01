@@ -1,8 +1,8 @@
 pipeline {
     agent any
     environment {
-       FRONTEND_URL=http://localhost:3000
-       MONGODB_URI=mongodb+srv://asrithnune03:asrithrishi@discuss.lieci.mongodb.net/?retryWrites=true&w=majority&appName=DiscUss
+       FRONTEND_URL='http://localhost:3000'
+       MONGODB_URI='mongodb+srv://asrithnune03:asrithrishi@discuss.lieci.mongodb.net/?retryWrites=true&w=majority&appName=DiscUss'
        JWT_SECRET_KEY='jhdcjhsdvchjsdhbfasdgbvs'
     }
     stages {
